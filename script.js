@@ -134,7 +134,7 @@ document.querySelector(".contact-form").addEventListener("submit", async (event)
   button.textContent = copy.formSending;
 
   try {
-    const response = await fetch("/api/contact", {
+    const response = await fetch(window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" ? "/api/contact" : "https://mailbox-service-zduur442vq-df.a.run.app/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
